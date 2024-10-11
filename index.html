@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Jenkins CI/CD Process - Chef Analogy</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f9;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        img {
+            width: 100%;
+            max-width: 700px;
+            display: block;
+            margin: 20px auto;
+        }
+        .diagram-link {
+            display: block;
+            text-align: center;
+            margin-top: 10px;
+        }
+        .diagram-link a {
+            color: #007bff;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        .diagram-link a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Jenkins CI/CD Process - Chef Analogy</h1>
+        <h2>Understanding Jenkins as a Chef</h2>
+        <p>
+            Jenkins can be thought of as the **chef** in a restaurant. Here’s how the analogy works:
+        </p>
+        <ul>
+            <li><strong>User (Customer):</strong> The user submits the code (order).</li>
+            <li><strong>Jenkins (Chef):</strong> Jenkins, as the chef, automates the process of fetching dependencies, building the code, testing it, and deploying it.</li>
+            <li><strong>CI/CD Pipeline:</strong> Represents the different stages such as fetching code, building the application, running tests, and deploying the application.</li>
+            <li><strong>Docker Image:</strong> The result of the build process, representing the containerized application.</li>
+            <li><strong>Kubernetes (AWS Deployment):</strong> If applicable, Jenkins can deploy the Docker image to a Kubernetes cluster in AWS or other cloud platforms.</li>
+            <li><strong>Jira:</strong> Jenkins can send the test results to Jira for reporting.</li>
+        </ul>
+        <p>
+            In summary, Jenkins automates the entire software development process, much like how a chef handles every aspect of preparing a dish. 
+            If something goes wrong, Jenkins notifies the user, and if successful, the deployment proceeds.
+        </p>
+
+        <h2>CI/CD Process Diagram</h2>
+        <p>Click the image below to view the detailed Jenkins CI/CD diagram:</p>
+
+        <img src="diagram-placeholder.png" alt="Jenkins CI/CD Diagram Placeholder">
+        <div class="diagram-link">
+            <a href="https://your-link-to-diagram" target="_blank">View Full Diagram</a>
+        </div>
+    </div>
+</body>
+</html>
