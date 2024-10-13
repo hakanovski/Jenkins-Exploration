@@ -326,8 +326,31 @@
             <li><strong>Logs:</strong> Provide detailed information about each stage, showing errors and results you can use to troubleshoot.</li>
         </ul>
     </div>
+
     <!-- Insert HOLY FINAL DIAGRAM at last! -->
     <img src="IMG_4708.png" alt="HOLY Diagram">
+
+    <!-- Insert Detailed Explanation after final diagram -->
+    <h2>Detailed Explanation of the Workflow</h2>
+    <p><strong>1. From Selenium IDE Test Results to Jenkins:</strong></p>
+    <p>Selenium IDE is used to write and execute automated test scripts for your application. Jenkins triggers these tests as part of the CI/CD pipeline. Once tests are executed, Jenkins collects the test results (pass/fail status, logs, etc.) to verify the code’s correctness.</p>
+
+    <p><strong>2. Building the Docker Image:</strong></p>
+    <p>After the tests pass, Jenkins proceeds to build a Docker image of the application using the codebase. A Docker image contains the application and all its dependencies. Jenkins then stores the Docker image in a container registry.</p>
+
+    <p><strong>3. Deployment to Kubernetes:</strong></p>
+    <p>Kubernetes pulls the Docker image from the registry, creates pods (deployable units), and deploys the containers within these pods across the infrastructure.</p>
+
+    <p><strong>4. Running on AWS:</strong></p>
+    <p>The Kubernetes cluster runs on AWS, and AWS provides the necessary infrastructure (computing, storage, and networking). AWS ensures optimization, load balancing, and scaling through services like Elastic Load Balancing (ELB) and Auto Scaling Groups (ASG).</p>
+
+    <h3>Summary of the Workflow:</h3>
+    <ul>
+        <li><strong>Test Execution and Validation:</strong> Jenkins triggers Selenium IDE tests, and the results are validated.</li>
+        <li><strong>Docker Image Creation:</strong> Jenkins builds the Docker image from the validated code and stores it in a container registry.</li>
+        <li><strong>Deployment and Scaling:</strong> Kubernetes manages deployment, scaling, and resource utilization, using the Docker image for containerization.</li>
+        <li><strong>AWS Role:</strong> AWS provides the infrastructure and services to optimize performance and scaling.</li>
+    </ul>
 </div>
 
 <footer>
