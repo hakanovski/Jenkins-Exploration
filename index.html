@@ -115,6 +115,7 @@
         <li><a href="#kubernetes">Kubernetes</a></li>
         <li><a href="#aws">AWS</a></li>
         <li><a href="#blue-ocean">Blue Ocean</a></li>
+        <li><a href="#pipeline-stages">Pipeline Stages</a></li>
     </ul>
 </nav>
 
@@ -136,8 +137,195 @@
     <!-- Insert Diagram 2 after the Jira section -->
     <img src="IMG_4707.jpeg" alt="Jira Workflow Diagram">
 
-    <!-- Rest of your content -->
-    <!-- ... (Keep the rest of the content unchanged) ... -->
+    <h2 id="selenium">2. Selenium IDE: Test Execution</h2>
+    <p>
+        Selenium IDE is a browser-based tool used to automate the execution of these test cases. We were provided with a <code>.side</code> file, which contains the scripts for automated testing. We use Selenium IDE to load and execute these scripts directly in the browser.
+    </p>
+    <p>
+        However, not all test cases run smoothly in Selenium IDE. Some tests pass, while others fail. This suggests that while we can run tests manually through Selenium IDE, the organization primarily uses a more advanced, automated process for managing test executions and results.
+    </p>
+
+    <h2 id="jenkins">3. Jenkins: Continuous Integration and Automation</h2>
+    <p>
+        Jenkins is the automation server that orchestrates the entire CI/CD pipeline for building, testing, and deploying the application. While we manually execute some tests in Selenium IDE, the organization’s primary testing pipeline is automated through Jenkins.
+    </p>
+    <p>
+        Jenkins is set up to:
+    </p>
+    <ul>
+        <li><strong>Trigger automated test runs:</strong> Jenkins pulls the test cases from a repository, likely a version control system like Git, and automates their execution.</li>
+        <li><strong>Integrate with Selenium tests:</strong> Jenkins may execute the Selenium tests as part of the build process, automatically triggering the <code>.side</code> files or other test scripts. It handles the execution without needing manual intervention.</li>
+        <li><strong>Build and package the application into a Docker container.</strong></li>
+    </ul>
+
+    <h2 id="docker">4. Docker: Containerization</h2>
+    <p>
+        Jenkins packages the application and test results into Docker containers. A Docker container is a standardized unit of software that bundles the application code with all its dependencies, making it portable and easy to run on any platform. The Docker image is pushed to a Docker registry (like Docker Hub or a private registry), from where it can be deployed.
+    </p>
+
+    <h2 id="kubernetes">5. Kubernetes: Orchestration and Scaling</h2>
+    <p>
+        Once the application is containerized, it is deployed to a Kubernetes cluster running on AWS. Kubernetes handles the orchestration of the Docker containers, ensuring they are:
+    </p>
+    <ul>
+        <li><strong>Deployed correctly across multiple servers (nodes).</strong></li>
+        <li><strong>Scaled up or down based on demand, ensuring optimal performance and resource utilization.</strong></li>
+        <li><strong>Monitored and managed automatically, restarting any failed containers to ensure high availability.</strong></li>
+    </ul>
+    <p>
+        Kubernetes allows the organization to efficiently manage the application’s infrastructure, ensuring the system can scale to meet user demand while running reliably on AWS.
+    </p>
+
+    <h2 id="aws">6. AWS: Cloud Infrastructure</h2>
+    <p>
+        The entire environment is hosted on AWS (Amazon Web Services), which provides the underlying cloud infrastructure to run Kubernetes. AWS offers the scalability, performance, and reliability needed for the application to operate efficiently.
+    </p>
+
+    <div class="summary">
+        <h3>In Summary:</h3>
+        <ul>
+            <li><strong>Jira</strong> is used to track and manage the testing process.</li>
+            <li><strong>Selenium IDE</strong> is used to run manual tests (with some limitations).</li>
+            <li><strong>Jenkins</strong> automates the CI/CD pipeline, running tests, and building the application.</li>
+            <li><strong>Docker</strong> containerizes the application.</li>
+            <li><strong>Kubernetes</strong> manages the deployment and scaling of the containers in AWS.</li>
+            <li>The process ensures efficient, scalable, and reliable testing and deployment for high-performance applications.</li>
+        </ul>
+    </div>
+
+    <h2 id="blue-ocean">Blue Ocean</h2>
+    <p>
+        <strong>Blue Ocean</strong> is a modern and user-friendly pipeline interface developed for Jenkins. Compared to the traditional Jenkins interface, it offers a more visual and easy-to-understand structure, making it simpler to manage and visualize CI/CD pipelines. This allows you to follow automation processes more intuitively on Jenkins.
+    </p>
+
+    <h3>Features of Blue Ocean:</h3>
+    <ol>
+        <li><strong>Pipeline Visualization:</strong>
+            <ul>
+                <li>Blue Ocean organizes Jenkins pipelines visually. Unlike the text-based view in traditional Jenkins, it graphically shows the flow and progress of each step.</li>
+                <li>You can clearly see which step is running, which has failed, or which has succeeded through color coding and visual indicators.</li>
+            </ul>
+        </li>
+        <li><strong>User-Friendly Interface:</strong>
+            <ul>
+                <li>Designed to improve user experience, it offers a more modern and intuitive interface, making Jenkins easier and more enjoyable to use.</li>
+                <li>Especially for newcomers to Jenkins, it provides a more understandable and accessible experience.</li>
+            </ul>
+        </li>
+        <li><strong>Easy Pipeline Creation:</strong>
+            <ul>
+                <li>Blue Ocean simplifies the process of creating pipelines, guiding you step by step and making complex settings easier.</li>
+                <li>It integrates easily with source code management systems like GitHub and Bitbucket, allowing you to automatically create pipelines from these platforms.</li>
+            </ul>
+        </li>
+        <li><strong>Step-by-Step Troubleshooting:</strong>
+            <ul>
+                <li>If there’s an error while a pipeline is running, you can easily identify which step failed. Blue Ocean displays each step as a separate box and shows where the error occurred with error messages.</li>
+                <li>This makes it easier to find and fix problems quickly.</li>
+            </ul>
+        </li>
+        <li><strong>Multi-Branch Pipeline Support:</strong>
+            <ul>
+                <li>Blue Ocean fully supports Jenkins’ multi-branch pipelines, allowing you to view pipelines running on different branches in a single interface.</li>
+            </ul>
+        </li>
+        <li><strong>Git and GitHub Integration:</strong>
+            <ul>
+                <li>Blue Ocean provides deep integration with version control systems like Git, GitHub, and Bitbucket, making it easy to manage your pipelines from these platforms.</li>
+            </ul>
+        </li>
+    </ol>
+
+    <h3>What Can You Do with Blue Ocean?</h3>
+    <ul>
+        <li><strong>Manage pipelines visually:</strong> You can see pipeline steps as boxes and easily monitor the status of each step (success, failure, running, etc.).</li>
+        <li><strong>Quickly intervene in case of errors:</strong> If a step fails, Blue Ocean visually indicates where the error occurred, speeding up the troubleshooting process.</li>
+        <li><strong>Create pipelines easily:</strong> You can automatically create a Jenkins pipeline from a GitHub or Bitbucket repository and follow step-by-step guidance.</li>
+    </ul>
+
+    <div class="summary">
+        <h3>Summary:</h3>
+        <p>
+            Blue Ocean offers a much more intuitive and visual user experience compared to Jenkins’ classic interface. It’s a great tool for those looking to manage and visualize CI/CD processes more efficiently. It simplifies continuous integration and delivery tasks with Jenkins and speeds up pipeline management.
+        </p>
+        <p>
+            If you want to better understand how your pipelines are progressing on Jenkins and streamline the process, Blue Ocean is perfect for you! You can try Blue Ocean by clicking the “Open Blue Ocean” button on the Jenkins Dashboard.
+        </p>
+    </div>
+
+    <h2 id="pipeline-stages">Understanding Pipeline Stages in Blue Ocean</h2>
+    <p>
+        Pipeline stages are the steps that show the different phases a software goes through in the CI/CD process. The green boxes you see in Blue Ocean indicate that these stages have been completed successfully. Let me explain in more detail what these mean:
+    </p>
+
+    <h3>What is a Pipeline?</h3>
+    <p>
+        A pipeline is an automated process in software development. During software development, there are several steps involved:
+    </p>
+    <ol>
+        <li><strong>Fetch:</strong> Jenkins retrieves the latest code from a version control system like GitHub or another source.</li>
+        <li><strong>Build Stage:</strong> The code is built into a runnable form. For example, it is compiled or packaged into a Docker image.</li>
+        <li><strong>Test Stage:</strong> Tests are run to verify the correctness of the code (using tools like Selenium, JUnit, etc.).</li>
+        <li><strong>Deployment:</strong> If the tests pass, the code is deployed (for example, to a web server or a Kubernetes cluster).</li>
+    </ol>
+    <p>
+        All of these steps happen in a specific sequence within a pipeline.
+    </p>
+
+    <h3>Pipeline Stages</h3>
+    <p>
+        Pipeline stages are the steps I just mentioned. For example, when Jenkins is building a project, the steps might include:
+    </p>
+    <ul>
+        <li><strong>Checkout:</strong> Retrieving the code from the version control system.</li>
+        <li><strong>Build:</strong> Compiling or packaging the code.</li>
+        <li><strong>Test:</strong> Running the tests.</li>
+        <li><strong>Deploy:</strong> Deploying the code to an environment.</li>
+    </ul>
+    <p>
+        Each of these steps is called a stage in Jenkins, and in Blue Ocean, these stages are visualized as boxes.
+    </p>
+
+    <h3>What Do the Green Boxes Mean?</h3>
+    <p>
+        The green boxes you see in the Blue Ocean interface show that each stage has been successfully completed. Each box represents a stage, and the green color indicates that the stage was executed without any issues.
+    </p>
+    <ul>
+        <li><strong>Green:</strong> The stage was completed successfully.</li>
+        <li><strong>Red:</strong> The stage failed. This means there was an error, and the pipeline stopped at this stage.</li>
+        <li><strong>Blue (or yellow):</strong> The stage is currently running, and the pipeline is progressing through this step.</li>
+    </ul>
+    <p>
+        For example, if a stage called “Test” passes successfully, it will appear as a green box. If there’s an issue during the test phase, the box will turn red.
+    </p>
+
+    <h3>What Are Logs For?</h3>
+    <p>
+        When you click on each box, a log opens that shows what happened during that stage. Logs provide detailed information about what each stage did in the background. For example:
+    </p>
+    <ul>
+        <li>How the code was compiled during the build stage.</li>
+        <li>Which tests were run during the test stage and details about any failed tests.</li>
+    </ul>
+    <p>
+        If a stage fails (the box turns red), the logs will show you what went wrong, allowing you to identify and fix the issue.
+    </p>
+
+    <h3>Why Are Pipeline Stages Important?</h3>
+    <ul>
+        <li><strong>Tracking Steps:</strong> Each stage is part of the software’s development, testing, and deployment process. By tracking these stages, you can see exactly where you are in the process.</li>
+        <li><strong>Debugging:</strong> If a stage fails (red box), you can immediately see where and why something went wrong. Logs provide detailed insights.</li>
+        <li><strong>Success Tracking:</strong> The green boxes show you that everything is running smoothly and the pipeline is succeeding.</li>
+    </ul>
+
+    <div class="summary">
+        <h3>Summary:</h3>
+        <ul>
+            <li><strong>Green boxes:</strong> Indicate that the pipeline stages were successfully completed.</li>
+            <li><strong>Pipeline stages:</strong> Represent the different phases of the software development process (e.g., fetching code, building, testing, deploying).</li>
+            <li><strong>Logs:</strong> Provide detailed information about each stage, showing errors and results you can use to troubleshoot.</li>
+        </ul>
+    </div>
 
 </div>
 
