@@ -4,72 +4,152 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Jenkins CI/CD Process - Chef Analogy</title>
+    <title>UAT Testing with Jenkins, Selenium, Docker, and Kubernetes</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 20px;
-            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
         }
-        h1, h2 {
-            color: #333;
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1.5em 0;
         }
-        .container {
-            max-width: 800px;
-            margin: auto;
-            padding: 20px;
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        main {
+            padding: 2em;
+            max-width: 1200px;
+            margin: 0 auto;
             background-color: #fff;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
-        img {
-            width: 100%;
-            max-width: 700px;
-            display: block;
-            margin: 20px auto;
+        section {
+            margin-bottom: 2em;
         }
-        .diagram-link {
-            display: block;
+        h2 {
+            color: #333;
+            font-size: 1.8rem;
+        }
+        p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 1em;
+        }
+        ul {
+            list-style-type: square;
+            margin-left: 2em;
+        }
+        li {
+            margin-bottom: 0.5em;
+            font-size: 1.1rem;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
             text-align: center;
-            margin-top: 10px;
-        }
-        .diagram-link a {
-            color: #007bff;
-            text-decoration: none;
-            font-size: 16px;
-        }
-        .diagram-link a:hover {
-            text-decoration: underline;
+            padding: 1.5em 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Jenkins CI/CD Process - Chef Analogy</h1>
-        <h2>Understanding Jenkins as a Chef</h2>
+
+<header>
+    <h1>User Acceptance Testing with Jenkins, Selenium, Docker, and Kubernetes</h1>
+</header>
+
+<main>
+    <section>
+        <h2>Project Overview</h2>
         <p>
-            Jenkins can be thought of as the **chef** in a restaurant. Here’s how the analogy works:
+            In this project, we are tasked with conducting User Acceptance Testing (UAT) for an application that is managed and deployed through a series of automated processes. 
+            The key tools and technologies used in this workflow include Jira, Jenkins, Selenium IDE, Docker, Kubernetes, and AWS.
+        </p>
+    </section>
+
+    <section>
+        <h2>1. Jira: Project Management and Test Planning</h2>
+        <p>
+            Jira is used as the central platform for managing the project, where all the test plans, user stories, and test cases are documented. 
+            Specifically, we have 42 test cases listed in Jira, which need to be executed as part of the User Acceptance Testing by the deadline.
+        </p>
+    </section>
+
+    <section>
+        <h2>2. Selenium IDE: Test Execution</h2>
+        <p>
+            Selenium IDE is a browser-based tool used to automate the execution of these test cases. 
+            We use Selenium IDE to load and execute scripts directly in the browser. Some tests pass, while others fail, indicating the need for more advanced automation.
+        </p>
+    </section>
+
+    <section>
+        <h2>3. Jenkins: Continuous Integration and Automation</h2>
+        <p>
+            Jenkins is the automation server that orchestrates the CI/CD pipeline for building, testing, and deploying the application. 
+            It triggers automated test runs, integrates with Selenium tests, and builds and packages the application into a Docker container.
+        </p>
+    </section>
+
+    <section>
+        <h2>4. Docker: Containerization</h2>
+        <p>
+            Docker is used to package the application and its dependencies into containers, making it portable and easy to run across any environment. 
+            Jenkins packages the application and pushes the Docker images to a registry, ready for deployment.
+        </p>
+    </section>
+
+    <section>
+        <h2>5. Kubernetes: Orchestration and Scaling</h2>
+        <p>
+            Kubernetes handles the orchestration and management of Docker containers, ensuring that they are deployed across multiple nodes, scaled based on demand, and maintained for high availability.
+        </p>
+    </section>
+
+    <section>
+        <h2>6. AWS: Cloud Infrastructure</h2>
+        <p>
+            The entire application is hosted on AWS, providing the scalability, performance, and reliability needed to run the application. 
+            Kubernetes runs on AWS, leveraging its infrastructure to scale and manage the application efficiently.
+        </p>
+    </section>
+
+    <section>
+        <h2>Blue Ocean: A Better Jenkins Experience</h2>
+        <p>
+            Blue Ocean is a modern and user-friendly interface for Jenkins pipelines. It offers visual pipeline management, step-by-step troubleshooting, and an intuitive UI that makes it easier to manage complex CI/CD pipelines.
+        </p>
+    </section>
+
+    <section>
+        <h2>Pipeline Stages Explained</h2>
+        <p>
+            In Jenkins, pipelines consist of multiple stages:
         </p>
         <ul>
-            <li><strong>User (Customer):</strong> The user submits the code (order).</li>
-            <li><strong>Jenkins (Chef):</strong> Jenkins, as the chef, automates the process of fetching dependencies, building the code, testing it, and deploying it.</li>
-            <li><strong>CI/CD Pipeline:</strong> Represents the different stages such as fetching code, building the application, running tests, and deploying the application.</li>
-            <li><strong>Docker Image:</strong> The result of the build process, representing the containerized application.</li>
-            <li><strong>Kubernetes (AWS Deployment):</strong> If applicable, Jenkins can deploy the Docker image to a Kubernetes cluster in AWS or other cloud platforms.</li>
-            <li><strong>Jira:</strong> Jenkins can send the test results to Jira for reporting.</li>
+            <li><strong>Checkout:</strong> Pulls the latest code from a version control system like GitHub.</li>
+            <li><strong>Build:</strong> Compiles or packages the code, often into a Docker image.</li>
+            <li><strong>Test:</strong> Runs automated tests to ensure the quality of the code.</li>
+            <li><strong>Deploy:</strong> Deploys the code to a production environment, such as a Kubernetes cluster on AWS.</li>
         </ul>
         <p>
-            In summary, Jenkins automates the entire software development process, much like how a chef handles every aspect of preparing a dish. 
-            If something goes wrong, Jenkins notifies the user, and if successful, the deployment proceeds.
+            Blue Ocean visualizes these stages as green, yellow, or red boxes, indicating success, in-progress, or failed stages.
         </p>
+    </section>
+</main>
 
-        <h2>CI/CD Process Diagram</h2>
-        <p>Click the image below to view the detailed Jenkins CI/CD diagram:</p>
+<footer>
+    <p>© 2024 McKinney Digital Arts Studio | All Rights Reserved</p>
+</footer>
 
-        <img src="diagram-placeholder.png" alt="Jenkins CI/CD Diagram Placeholder">
-        <div class="diagram-link">
-            <a href="https://your-link-to-diagram" target="_blank">View Full Diagram</a>
-        </div>
-    </div>
 </body>
 </html>
