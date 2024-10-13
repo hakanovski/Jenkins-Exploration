@@ -3,69 +3,136 @@
 <head>
     <meta charset="UTF-8">
     <title>UAT Project Tutorial</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f4f7f9;
         }
-        h1, h2, h3 {
+        header {
+            background-color: #2E3B4E;
+            padding: 20px;
+            text-align: center;
+            color: #fff;
+        }
+        header h1 {
+            margin: 0;
+            font-weight: 600;
+        }
+        nav {
+            background-color: #fff;
+            padding: 10px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        nav ul {
+            list-style: none;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        nav li {
+            display: inline-block;
+            margin: 0 15px;
+        }
+        nav a {
+            text-decoration: none;
             color: #2E3B4E;
+            font-weight: 600;
+            font-size: 16px;
         }
-        .collapsible {
-            background-color: #f1f1f1;
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 40px auto;
+            background-color: #fff;
+            padding: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h2 {
             color: #2E3B4E;
-            cursor: pointer;
-            padding: 18px;
-            width: 100%;
-            border: none;
-            text-align: left;
-            outline: none;
-            font-size: 18px;
-            margin-bottom: 5px;
+            margin-top: 40px;
+            font-weight: 600;
         }
-        .active, .collapsible:hover {
-            background-color: #ccc;
-        }
-        .content {
-            padding: 0 18px;
-            display: none;
-            overflow: hidden;
-            background-color: #f9f9f9;
-            margin-bottom: 10px;
+        h3 {
+            color: #2E3B4E;
+            margin-top: 30px;
+            font-weight: 600;
         }
         p {
+            line-height: 1.8;
+            margin: 15px 0;
+        }
+        ul, ol {
+            margin: 15px 0 15px 40px;
+        }
+        li {
+            margin-bottom: 10px;
             line-height: 1.6;
+        }
+        code {
+            background-color: #f1f1f1;
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-size: 90%;
+        }
+        footer {
+            background-color: #2E3B4E;
+            padding: 20px;
+            text-align: center;
+            color: #fff;
+            margin-top: 40px;
+        }
+        .summary {
+            background-color: #e9f5ff;
+            padding: 20px;
+            border-left: 5px solid #2E3B4E;
+            margin: 30px 0;
         }
     </style>
 </head>
 <body>
 
-<h1>User Acceptance Testing (UAT) Project Tutorial</h1>
+<header>
+    <h1>User Acceptance Testing (UAT) Project Tutorial</h1>
+</header>
 
-<h2>Overview</h2>
-<p>
-    In this project, we are tasked with conducting User Acceptance Testing (UAT) for an application that is managed and deployed through a series of automated processes. The key tools and technologies used in this workflow include Jira, Jenkins, Selenium IDE, Docker, Kubernetes, and AWS.
-</p>
+<nav>
+    <ul>
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#jira">Jira</a></li>
+        <li><a href="#selenium">Selenium IDE</a></li>
+        <li><a href="#jenkins">Jenkins</a></li>
+        <li><a href="#docker">Docker</a></li>
+        <li><a href="#kubernetes">Kubernetes</a></li>
+        <li><a href="#aws">AWS</a></li>
+        <li><a href="#blue-ocean">Blue Ocean</a></li>
+    </ul>
+</nav>
 
-<button class="collapsible">1. Jira: Project Management and Test Planning</button>
-<div class="content">
+<div class="container">
+
+    <h2 id="overview">Overview</h2>
     <p>
-        Jira is used as the central platform for managing the project, where all the test plans, user stories, and test cases are documented. Specifically, we have 42 test cases listed in Jira, which need to be executed as part of the User Acceptance Testing by the deadline. Jira acts as the source of truth for tracking the status of each test case, whether it’s “To Do,” “In Progress,” or “Completed.”
+        In this project, we are tasked with conducting User Acceptance Testing (UAT) for an application that is managed and deployed through a series of automated processes. The key tools and technologies used in this workflow include Jira, Jenkins, Selenium IDE, Docker, Kubernetes, and AWS.
     </p>
-</div>
 
-<button class="collapsible">2. Selenium IDE: Test Execution</button>
-<div class="content">
+    <h2 id="jira">1. Jira: Project Management and Test Planning</h2>
+    <p>
+        Jira is used as the central platform for managing the project, where all the test plans, user stories, and test cases are documented. Specifically, we have <strong>42 test cases</strong> listed in Jira, which need to be executed as part of the User Acceptance Testing by the deadline. Jira acts as the source of truth for tracking the status of each test case, whether it’s “To Do,” “In Progress,” or “Completed.”
+    </p>
+
+    <h2 id="selenium">2. Selenium IDE: Test Execution</h2>
     <p>
         Selenium IDE is a browser-based tool used to automate the execution of these test cases. We were provided with a <code>.side</code> file, which contains the scripts for automated testing. We use Selenium IDE to load and execute these scripts directly in the browser.
     </p>
     <p>
         However, not all test cases run smoothly in Selenium IDE. Some tests pass, while others fail. This suggests that while we can run tests manually through Selenium IDE, the organization primarily uses a more advanced, automated process for managing test executions and results.
     </p>
-</div>
 
-<button class="collapsible">3. Jenkins: Continuous Integration and Automation</button>
-<div class="content">
+    <h2 id="jenkins">3. Jenkins: Continuous Integration and Automation</h2>
     <p>
         Jenkins is the automation server that orchestrates the entire CI/CD pipeline for building, testing, and deploying the application. While we manually execute some tests in Selenium IDE, the organization’s primary testing pipeline is automated through Jenkins.
     </p>
@@ -73,58 +140,52 @@
         Jenkins is set up to:
     </p>
     <ul>
-        <li>Trigger automated test runs: Jenkins pulls the test cases from a repository, likely a version control system like Git, and automates their execution.</li>
-        <li>Integrate with Selenium tests: Jenkins may execute the Selenium tests as part of the build process, automatically triggering the <code>.side</code> files or other test scripts. It handles the execution without needing manual intervention.</li>
-        <li>Build and package the application into a Docker container.</li>
+        <li><strong>Trigger automated test runs:</strong> Jenkins pulls the test cases from a repository, likely a version control system like Git, and automates their execution.</li>
+        <li><strong>Integrate with Selenium tests:</strong> Jenkins may execute the Selenium tests as part of the build process, automatically triggering the <code>.side</code> files or other test scripts. It handles the execution without needing manual intervention.</li>
+        <li><strong>Build and package the application into a Docker container.</strong></li>
     </ul>
-</div>
 
-<button class="collapsible">4. Docker: Containerization</button>
-<div class="content">
+    <h2 id="docker">4. Docker: Containerization</h2>
     <p>
         Jenkins packages the application and test results into Docker containers. A Docker container is a standardized unit of software that bundles the application code with all its dependencies, making it portable and easy to run on any platform. The Docker image is pushed to a Docker registry (like Docker Hub or a private registry), from where it can be deployed.
     </p>
-</div>
 
-<button class="collapsible">5. Kubernetes: Orchestration and Scaling</button>
-<div class="content">
+    <h2 id="kubernetes">5. Kubernetes: Orchestration and Scaling</h2>
     <p>
         Once the application is containerized, it is deployed to a Kubernetes cluster running on AWS. Kubernetes handles the orchestration of the Docker containers, ensuring they are:
     </p>
     <ul>
-        <li>Deployed correctly across multiple servers (nodes).</li>
-        <li>Scaled up or down based on demand, ensuring optimal performance and resource utilization.</li>
-        <li>Monitored and managed automatically, restarting any failed containers to ensure high availability.</li>
+        <li><strong>Deployed correctly across multiple servers (nodes).</strong></li>
+        <li><strong>Scaled up or down based on demand, ensuring optimal performance and resource utilization.</strong></li>
+        <li><strong>Monitored and managed automatically, restarting any failed containers to ensure high availability.</strong></li>
     </ul>
     <p>
         Kubernetes allows the organization to efficiently manage the application’s infrastructure, ensuring the system can scale to meet user demand while running reliably on AWS.
     </p>
-</div>
 
-<button class="collapsible">6. AWS: Cloud Infrastructure</button>
-<div class="content">
+    <h2 id="aws">6. AWS: Cloud Infrastructure</h2>
     <p>
         The entire environment is hosted on AWS (Amazon Web Services), which provides the underlying cloud infrastructure to run Kubernetes. AWS offers the scalability, performance, and reliability needed for the application to operate efficiently.
     </p>
-</div>
 
-<h2>Summary</h2>
-<ul>
-    <li><strong>Jira</strong> is used to track and manage the testing process.</li>
-    <li><strong>Selenium IDE</strong> is used to run manual tests (with some limitations).</li>
-    <li><strong>Jenkins</strong> automates the CI/CD pipeline, running tests, and building the application.</li>
-    <li><strong>Docker</strong> containerizes the application.</li>
-    <li><strong>Kubernetes</strong> manages the deployment and scaling of the containers in AWS.</li>
-    <li>The process ensures efficient, scalable, and reliable testing and deployment for high-performance applications.</li>
-</ul>
+    <div class="summary">
+        <h3>In Summary:</h3>
+        <ul>
+            <li><strong>Jira</strong> is used to track and manage the testing process.</li>
+            <li><strong>Selenium IDE</strong> is used to run manual tests (with some limitations).</li>
+            <li><strong>Jenkins</strong> automates the CI/CD pipeline, running tests, and building the application.</li>
+            <li><strong>Docker</strong> containerizes the application.</li>
+            <li><strong>Kubernetes</strong> manages the deployment and scaling of the containers in AWS.</li>
+            <li>The process ensures efficient, scalable, and reliable testing and deployment for high-performance applications.</li>
+        </ul>
+    </div>
 
-<h2>Blue Ocean</h2>
-<p>
-    Blue Ocean is a modern and user-friendly pipeline interface developed for Jenkins. Compared to the traditional Jenkins interface, it offers a more visual and easy-to-understand structure, making it simpler to manage and visualize CI/CD pipelines. This allows you to follow automation processes more intuitively on Jenkins.
-</p>
+    <h2 id="blue-ocean">Blue Ocean</h2>
+    <p>
+        <strong>Blue Ocean</strong> is a modern and user-friendly pipeline interface developed for Jenkins. Compared to the traditional Jenkins interface, it offers a more visual and easy-to-understand structure, making it simpler to manage and visualize CI/CD pipelines. This allows you to follow automation processes more intuitively on Jenkins.
+    </p>
 
-<button class="collapsible">Features of Blue Ocean</button>
-<div class="content">
+    <h3>Features of Blue Ocean:</h3>
     <ol>
         <li><strong>Pipeline Visualization:</strong>
             <ul>
@@ -161,27 +222,25 @@
             </ul>
         </li>
     </ol>
-</div>
 
-<button class="collapsible">What Can You Do with Blue Ocean?</button>
-<div class="content">
+    <h3>What Can You Do with Blue Ocean?</h3>
     <ul>
         <li><strong>Manage pipelines visually:</strong> You can see pipeline steps as boxes and easily monitor the status of each step (success, failure, running, etc.).</li>
         <li><strong>Quickly intervene in case of errors:</strong> If a step fails, Blue Ocean visually indicates where the error occurred, speeding up the troubleshooting process.</li>
         <li><strong>Create pipelines easily:</strong> You can automatically create a Jenkins pipeline from a GitHub or Bitbucket repository and follow step-by-step guidance.</li>
     </ul>
-</div>
 
-<h2>Summary</h2>
-<p>
-    Blue Ocean offers a much more intuitive and visual user experience compared to Jenkins’ classic interface. It’s a great tool for those looking to manage and visualize CI/CD processes more efficiently. It simplifies continuous integration and delivery tasks with Jenkins and speeds up pipeline management.
-</p>
-<p>
-    If you want to better understand how your pipelines are progressing on Jenkins and streamline the process, Blue Ocean is perfect for you! You can try Blue Ocean by clicking the “Open Blue Ocean” button on the Jenkins Dashboard.
-</p>
+    <div class="summary">
+        <h3>Summary:</h3>
+        <p>
+            Blue Ocean offers a much more intuitive and visual user experience compared to Jenkins’ classic interface. It’s a great tool for those looking to manage and visualize CI/CD processes more efficiently. It simplifies continuous integration and delivery tasks with Jenkins and speeds up pipeline management.
+        </p>
+        <p>
+            If you want to better understand how your pipelines are progressing on Jenkins and streamline the process, Blue Ocean is perfect for you! You can try Blue Ocean by clicking the “Open Blue Ocean” button on the Jenkins Dashboard.
+        </p>
+    </div>
 
-<button class="collapsible">Understanding Pipeline Stages in Blue Ocean</button>
-<div class="content">
+    <h2>Understanding Pipeline Stages in Blue Ocean</h2>
     <p>
         Pipeline stages are the steps that show the different phases a software goes through in the CI/CD process. The green boxes you see in Blue Ocean indicate that these stages have been completed successfully. Let me explain in more detail what these mean:
     </p>
@@ -202,7 +261,7 @@
 
     <h3>Pipeline Stages</h3>
     <p>
-        Pipeline stages are the steps mentioned above. For example, when Jenkins is building a project, the steps might include:
+        Pipeline stages are the steps I just mentioned. For example, when Jenkins is building a project, the steps might include:
     </p>
     <ul>
         <li><strong>Checkout:</strong> Retrieving the code from the version control system.</li>
@@ -246,28 +305,20 @@
         <li><strong>Success Tracking:</strong> The green boxes show you that everything is running smoothly and the pipeline is succeeding.</li>
     </ul>
 
-    <h3>Summary</h3>
-    <ul>
-        <li><strong>Green boxes:</strong> Indicate that the pipeline stages were successfully completed.</li>
-        <li><strong>Pipeline stages:</strong> Represent the different phases of the software development process (e.g., fetching code, building, testing, deploying).</li>
-        <li><strong>Logs:</strong> Provide detailed information about each stage, showing errors and results you can use to troubleshoot.</li>
-    </ul>
+    <div class="summary">
+        <h3>Summary:</h3>
+        <ul>
+            <li><strong>Green boxes:</strong> Indicate that the pipeline stages were successfully completed.</li>
+            <li><strong>Pipeline stages:</strong> Represent the different phases of the software development process (e.g., fetching code, building, testing, deploying).</li>
+            <li><strong>Logs:</strong> Provide detailed information about each stage, showing errors and results you can use to troubleshoot.</li>
+        </ul>
+    </div>
+
 </div>
 
+<footer>
+    <p>&copy; 2023 UAT Project Tutorial. All rights reserved.</p>
+</footer>
+
 </body>
-<script>
-    var coll = document.getElementsByClassName("collapsible");
-    var i;
-    for (i = 0; i < coll.length; i++) {
-        coll[i].addEventListener("click", function() {
-            this.classList.toggle("active");
-            var content = this.nextElementSibling;
-            if (content.style.display === "block") {
-                content.style.display = "none";
-            } else {
-                content.style.display = "block";
-            }
-        });
-    }
-</script>
 </html>
